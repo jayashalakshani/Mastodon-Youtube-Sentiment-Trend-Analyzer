@@ -39,3 +39,6 @@ The project is based on the Lambda Architecture, which consists of:
 ## Step-by-Step Guide
 
 ### 1. Data Collection for Batch Layer
+
+- **Sources**:
+ - **YouTube API**
