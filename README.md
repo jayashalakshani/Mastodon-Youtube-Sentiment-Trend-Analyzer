@@ -40,14 +40,23 @@ The project is based on the Lambda Architecture, which consists of:
 
 ### 1. Data Collection for Batch Layer and Speed Layer
 
-#### **Sources**
-***YouTube***
-          - Pulled US-region trending videos and top-level comments.
-          - Filtered for English language.
-          - Collected: Video ID, snippet, tags, title, published_at.
-          - Stored selected features in the MongoDB social_media_analytics database, the youtube_tags_data collection.
-          - Store unique tags in the youtube_unique_tag collection.
-          - Next, fetch the comments related to the unique trending tags and store them in the youtube_sentiment_collection collection.
+#### Sources
+
+**YouTube**  
+- Pulled US-region trending videos and top-level comments.  
+- Filtered for English language.  
+- **Collected Data**:  
+  - Video ID  
+  - Snippet  
+  - Tags  
+  - Title  
+  - Published Date (`published_at`)  
+- **Storage**:  
+  - Stored selected features in the MongoDB `social_media_analytics` database, under the `youtube_tags_data` collection.  
+  - Unique tags are stored in the `youtube_unique_tag` collection.  
+- **Next Steps**:  
+  - Fetch comments related to the unique trending tags.  
+  - Store them in the `youtube_sentiment_collection` collection. 
   
   
   
