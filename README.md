@@ -40,8 +40,8 @@ The project is based on the Lambda Architecture, which consists of:
 
 ### 1. Data Collection for Batch Layer and Speed Layer
 
-- **Sources**
-      **YouTube**
+#### **Sources**
+***YouTube***
           - Pulled US-region trending videos and top-level comments.
           - Filtered for English language.
           - Collected: Video ID, snippet, tags, title, published_at.
