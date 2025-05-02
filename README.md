@@ -8,14 +8,13 @@ A Lambda Architecture-based social media analytics system for tracking public se
 1. [Introduction](#introduction)
 2. [Architecture Overview](#architecture-overview)
 3. [Step-by-Step Guide](#step-by-step-guide)
-    1. [Data Collection & Preprocessing for Batch Layer and Speed Layer](##data-collection-for-batch-layer-and-speed-layer)
+    1. [Data Collection & Preprocessing for Batch Layer and Speed Layer](#data-collection--preprocessing-for-batch-layer-and-speed-layer)
     2. [Batch Layer](#batch-layer)
     3. [Speed Layer](#speed-layer)
-    4. [Serving Layer](#Serving-layer)
+    4. [Serving Layer](#serving-layer)
 4. [Installation](#installation)
 5. [Contribution](#contribution)
 6. [License](#license)
-
 
 ---
 
@@ -81,31 +80,31 @@ The project is based on the Lambda Architecture, which consists of:
 
 The batch layer performs historical processing on previously collected data stored in MongoDB to extract trends and sentiment patterns over time.
 
-#### 1. Initialize Spark Session & Connect to MongoDB ####
+#### 1. Initialize Spark Session & Connect to MongoDB 
 - Connect to the `social_media_analytics` database using pymongo or Spark's MongoDB connector.
 - Read collections like `youtube_sentiment_collection` & `mastodon_sentiment_data` which store tagged comments.
 
-#### 2. Load Historical Comment Data ####
+#### 2. Load Historical Comment Data 
 - Load the full dataset of previously saved YouTube comments from the `youtube_sentiment_collection` collection & Manstodon comments from the `mastodon_sentiment_data` collection.
 - Convert to a Spark DataFrame for distributed processing.
 
-#### 3. Data Cleaning & Preprocessing ####
+#### 3. Data Cleaning & Preprocessing 
 - Remove null or irrelevant entries.
 - Ensure each comment is associated with a valid tag and preprocessed text.
 
-#### 4. Sentiment Analysis ####
+#### 4. Sentiment Analysis 
 - Apply a pretrained Hugging Face sentiment model (cardiffnlp/twitter-roberta-base-sentiment) on each comment.
 - Predict sentiment labels (Positive/Negative/Neutral).
 - This is often done using pandas UDFs (or PySpark UDFs) for batch inference in parallel.
 
-#### 5. Aggregation and Trend Analysis ####
+#### 5. Aggregation and Trend Analysis
 - Group by tags and calculate:
     - Count of comments.
     - Number of positive vs negative sentiments.
     - Sentiment ratio or sentiment score.
     - Extract most frequently appearing tags with high positive/negative/Neutral sentiment over time.
 
-#### 6. Save Results #####
+#### 6. Save Results
 - Store the aggregated results in a new MongoDB collection (`batch_tag_sentiment` & `batch_platform_sentiment`) for visualization.
   ![image](https://github.com/user-attachments/assets/822f6d34-4f7c-4041-926c-0f25a627bb73)
   ![image](https://github.com/user-attachments/assets/43752de8-c7f7-416b-bea5-0ae0924196b4)
@@ -123,42 +122,42 @@ The batch layer performs historical processing on previously collected data stor
 
 ### 2. Speed Layer 
 
-#### 1. Initialize Spark Session with Streaming configurations & Connect to MongoDB ####
+#### 1. Initialize Spark Session with Streaming configurations & Connect to MongoDB 
 - Connect to the `social_media_analytics_new` database using pymongo or Spark's MongoDB connector.
 - Read collections like `youtube_sentiment_data` & `mastodon_sentiment_data` which store tagged comments.
 
-#### 2. Load Historical Comment Data ####
+#### 2. Load Historical Comment Data
 - Load the full dataset of previously saved YouTube comments from the `youtube_sentiment_data` collection & Manstodon comments from the `mastodon_sentiment_data` collection.
 - Convert to a Spark DataFrame for distributed processing.
 
-#### 3. Data Cleaning & Preprocessing ####
+#### 3. Data Cleaning & Preprocessing
 - Remove null or irrelevant entries.
 - Ensure each comment is associated with a valid tag and preprocessed text.
 
-#### 4. Sentiment Analysis ####
+#### 4. Sentiment Analysis
 - Apply a pretrained Hugging Face sentiment model (cardiffnlp/twitter-roberta-base-sentiment) on each comment.
 - Predict sentiment labels (Positive/Negative/Neutral).
 - This is often done using pandas UDFs (or PySpark UDFs) for batch inference in parallel.
 
-#### 5. Aggregation and Trend Analysis ####
+#### 5. Aggregation and Trend Analysis
 - Group by tags and calculate:
     - Count of comments.
     - Number of positive vs negative sentiments.
     - Sentiment ratio or sentiment score.
     - Extract most frequently appearing tags with high positive/negative/Neutral sentiment over time.
 
-#### 6. Save Results #####
+#### 6. Save Results
 - Store the aggregated results in a new MongoDB collection (`batch_tag_sentiment` & `batch_platform_sentiment`) for visualization.
 
 ### 2. Serving Layer 
 
 Here, using Streamlit, create the web app and use Tableau to create a dashboard for the historical data.
 
-#### 1. Dashboard ####
+#### 1. Dashboard
 ![image](https://github.com/user-attachments/assets/847122ef-9db3-4d23-aba9-10ec79d176fc)
 ![image](https://github.com/user-attachments/assets/ce853f19-8a78-49bb-ad00-3023c00d28f6)
 
-#### 2. Streamlit App ####
+#### 2. Streamlit App
 - Show currently trending tags from YouTube and Mastodon.
   
   ![image](https://github.com/user-attachments/assets/b95564a3-49ae-469a-a996-f14495b19809)
