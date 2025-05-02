@@ -13,10 +13,9 @@ A Lambda Architecture-based social media analytics system for tracking public se
     3. [Speed Layer](#speed-layer)
     4. [Serving Layer](#Serving-layer)
 4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Project Structure](#project-structure)
-7. [Contributing](#contributing)
-8. [License](#license)
+5. [Contribution](#contribution)
+6. [License](#license)
+
 
 ---
 
@@ -117,6 +116,7 @@ The batch layer performs historical processing on previously collected data stor
 
 #### 7. Compare MapReduce vs. Spark Performance ####
 - Implement a simple MapReduce-style sentiment analysis.
+  
   ![image](https://github.com/user-attachments/assets/33c7d272-c808-4e09-98ea-0e85e10c2110)
   ![image](https://github.com/user-attachments/assets/61386eaa-d279-4bb2-9da5-e701a84e2990)
 
@@ -171,7 +171,7 @@ Here, using Streamlit, create the web app and use Tableau to create a dashboard 
   
 ---
 
-## Installation
+## 4. Installation
 
 ### Prerequisites
 
@@ -207,7 +207,17 @@ Here, using Streamlit, create the web app and use Tableau to create a dashboard 
    
 ---
 
-## License
+## 5. Contribution
+
+- Data Collection & Preprocessing for Speed Layer. [PGJ Lakshani,25180]
+- Data Collection & Preprocessing for Batch Layer. [HHN PEIRIS, 25011]
+- Batch Layer. [HHN PEIRIS, 25011]
+- Speed Layer. [PGJ Lakshani,25180]
+- Streamlit App & Dashboard. [PGJ Lakshani,25180]
+
+---
+
+## 6. License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
