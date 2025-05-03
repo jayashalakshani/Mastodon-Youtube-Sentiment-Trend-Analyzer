@@ -154,8 +154,15 @@ The batch layer performs historical processing on previously collected data stor
 Here, using Streamlit, create the web app and use Tableau to create a dashboard for the historical data.
 
 #### 1. Dashboard
+
+- Dashboard for Historical data using Tableau.
+  
 ![image](https://github.com/user-attachments/assets/847122ef-9db3-4d23-aba9-10ec79d176fc)
 ![image](https://github.com/user-attachments/assets/ce853f19-8a78-49bb-ad00-3023c00d28f6)
+
+- Dashboard for Real-time data using MongoDB.
+
+![Real time social media analyzer](https://github.com/user-attachments/assets/e6b38cfd-5a4c-4c7e-8c09-4fd1fe578355)
 
 #### 2. Streamlit App
 - Show currently trending tags from YouTube and Mastodon.
